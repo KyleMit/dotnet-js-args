@@ -1,0 +1,16 @@
+﻿@using dotnet_js_args.Helpers
+
+<div>
+    <h2>Welcome <span id="message"></span></h1>
+</div>
+
+@functions {
+    public record HomeArgs(string name, int age) : IJavaScriptArgs { }
+}
+
+@section Scripts {
+
+    @JavaScriptHelper.Args("home/index", new HomeArgs("Kyle", 35))
+    <script type="text/javascript" src="@Url.Content("/js/home.js")"></script>
+
+}
